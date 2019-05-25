@@ -1,29 +1,31 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import birthday from '../../components/birthday/birthday';
 
-const authdiv = document.getElementById('auth').addEventListener('click');
-const birfdaydiv = document.getElementById('birfday').addEventListener('click');
-const birfdayNavBar = document.getElementById('navbar-button-birfday').addEventListener('click');
-const authNavBar = document.getElementById('navbar-button-auth').addEventListener('click');
-const logoutNavBar = document.getElementById('navbar-button-logout').addEventListener('click');
+const authDiv = document.getElementById('auth');
+const birfdayDiv = document.getElementById('birthday');
+const birfdayNavbar = document.getElementById('navbar-button-birfday');
+const authNavbar = document.getElementById('navbar-button-auth');
+const logoutNavbar = document.getElementById('navbar-button-logout');
 
 
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      console.error('user found');
-      authdiv.classlist.add('hide');
-      birfdaydiv.classlist.remove('hide');
-      birfdayNavBar.classlist.remove('hide');
-      authNavBar.classlist.add('hide');
-      logoutNavBar.classlist.remove('hide');
+      console.error(user);
+      authDiv.classList.add('hide');
+      birfdayDiv.classList.remove('hide');
+      birfdayNavbar.classList.remove('hide');
+      authNavbar.classList.add('hide');
+      logoutNavbar.classList.remove('hide');
+      birthday.birthdayString(user.uid);
     } else {
       console.error('user not found');
-      authdiv.classlist.remove('hide');
-      birfdaydiv.classlist.add('hide');
-      birfdayNavBar.classlist.add('hide');
-      authNavBar.classlist.remove('hide');
-      logoutNavBar.classlist.add('hide');
+      authDiv.classList.remove('hide');
+      birfdayDiv.classList.add('hide');
+      birfdayNavbar.classList.add('hide');
+      authNavbar.classList.remove('hide');
+      logoutNavbar.classList.add('hide');
     }
   });
 };
