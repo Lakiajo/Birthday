@@ -1,0 +1,13 @@
+{
+  "fireBaseKeys": {
+      "apiKey": "AIzaSyBvCH9Q3csZS5ZJwJ_kiahZDBMpRIQMZJc",
+      "authDomain": "birthday-14c37.firebaseapp.com",
+      "databaseURL": "https://birthday-14c37.firebaseio.com",
+      "projectId": "birthday-14c37",
+      "storageBucket": "birthday-14c37.appspot.com",
+      "messagingSenderId": "532102855737",
+      "appId": "1:532102855737:web:3f502d70745a8c30"
+    
+  }
+}
+
