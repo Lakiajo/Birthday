@@ -1,13 +1,13 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import birthday from '../../components/birthday/birthday';
+import friends from '../../components/friends/friends';
 
 const authDiv = document.getElementById('auth');
 const birfdayDiv = document.getElementById('birthday');
 const birfdayNavbar = document.getElementById('navbar-button-birfday');
 const authNavbar = document.getElementById('navbar-button-auth');
 const logoutNavbar = document.getElementById('navbar-button-logout');
-
 
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
@@ -19,6 +19,7 @@ const checkLoginStatus = () => {
       authNavbar.classList.add('hide');
       logoutNavbar.classList.remove('hide');
       birthday.birthdayString(user.uid);
+      friends.showFriends();
     } else {
       // console.error('user not found');
       authDiv.classList.remove('hide');
