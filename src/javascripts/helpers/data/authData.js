@@ -1,11 +1,11 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
-const authdiv = document.getElementById('authdiv').addEventListener('navbar-button-logout');
-const birfdaydiv = document.getElementById('authdiv').addEventListener('navbar-button-logout');
-const birfdayNavBar = document.getElementById('authdiv').addEventListener('navbar-button-logout');
-const authNavBar = document.getElementById('authdiv').addEventListener('navbar-button-logout');
-const logoutNavBar = document.getElementById('authdiv').addEventListener('navbar-button-logout');
+const authdiv = document.getElementById('auth').addEventListener('click');
+const birfdaydiv = document.getElementById('birfday').addEventListener('click');
+const birfdayNavBar = document.getElementById('navbar-button-birfday').addEventListener('click');
+const authNavBar = document.getElementById('navbar-button-auth').addEventListener('click');
+const logoutNavBar = document.getElementById('navbar-button-logout').addEventListener('click');
 
 
 const checkLoginStatus = () => {
