@@ -2,18 +2,16 @@ import firebase from 'firebase/app';
 import 'bootstrap';
 import '../styles/main.scss';
 import auth from './components/auth/auth';
-// import  from './components/birthday/birthday';
 import apiKeys from './helpers/apiKeys.json';
 import MyNavBar from './components/myNavBar/MyNavBar';
 import authData from './helpers/data/authData';
 
-console.error('Lakia Jones');
+// console.error('Lakia Jones');
 
 const init = () => {
   console.error('keys', apiKeys.fireBaseKeys);
   firebase.initializeApp(apiKeys.fireBaseKeys);
   MyNavBar.navBarEvents();
-  // birthday.birthdayString();
   auth.authString();
   authData.checkLoginStatus();
 };
