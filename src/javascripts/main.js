@@ -9,7 +9,7 @@ import authData from './helpers/data/authData';
 // console.error('Lakia Jones');
 
 const init = () => {
-  console.error('keys', apiKeys.fireBaseKeys);
+  // console.error('keys', apiKeys.fireBaseKeys);
   firebase.initializeApp(apiKeys.fireBaseKeys);
   MyNavBar.navBarEvents();
   auth.authString();
