@@ -5,4 +5,18 @@ const firebaseUrl = apiKeys.fireBaseKeys.databaseURL;
 
 const addNewFriend = friendObject => Axios.post(`${firebaseUrl}/friends.json`, friendObject);
 
-export default { addNewFriend };
+const getFriendsByUid = uid => new Promise((resolve, reject) => {
+  Axios.get(`${firebaseUrl}/friends.json?orderBy="uid"&equalTo="${uid}"`)
+    .then((results) => {
+      const friendsResults = results.data;
+      const friends = [];
+      Object.keys(friendsResults).forEach((friendsId) => {
+        friendsResults[friendsId].id = friendsId;
+        friends.push(friendsResults[friendsId]);
+      });
+      resolve(friends);
+    })
+    .catch(err => reject(err));
+});
+
+export default { addNewFriend, getFriendsByUid };
