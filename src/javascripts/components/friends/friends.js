@@ -22,7 +22,7 @@ const createNewFriend = (e) => {
       getFriends(firebase.auth().currentUser.uid); // eslint-disable-line no-use-before-define
     })
     .catch(err => console.error('no new friends', err));
-  console.error(newFriend);
+  // console.error(newFriend);
 };
 
 const newFriendButton = () => {
@@ -66,16 +66,16 @@ const showFriends = (friends) => {
     domString += `<td>${friend.email}</td>`;
     domString += `<td id=${friend.rsvpId}>`;
     domString += '<div class="custom-control custom-radio custom-control-inline">';
-    domString += `<input type="radio" id="radio1 _${friend.id}" name="radio-buttons_${friend.id}" class="custom-control-input">`;
+    domString += `<input type="radio" id="radio1 _${friend.id}" name="radio-buttons_${friend.id}" class="custom-control-input" ${friend.statusId === 'status2' ? 'checked' : ''}>`;
     domString += `<label class="custom-control-label" for="radio1 _${friend.id}">Yes, I'll 
     </label>`;
     domString += '</div>';
     domString += '<div class="custom-control custom-radio custom-control-inline">';
-    domString += `<input type="radio" id="radio2 _${friend.id}" name="radio-buttons_${friend.id}" class="custom-control-input">`;
+    domString += `<input type="radio" id="radio2 _${friend.id}" name="radio-buttons_${friend.id}" class="custom-control-input" ${friend.statusId === 'status3' ? 'checked' : ''}>`;
     domString += `<label class="custom-control-label" for="radio2 _${friend.id}">No, I cant make it.</label>`;
     domString += '</div>';
     domString += '<div class="custom-control custom-radio custom-control-inline">';
-    domString += `<input type="radio" id="radio3 _${friend.id}" name="radio-buttons_${friend.id}" class="custom-control-input">`;
+    domString += `<input type="radio" id="radio3 _${friend.id}" name="radio-buttons_${friend.id}" class="custom-control-input" ${friend.statusId === 'status1' ? 'checked' : ''}>`;
     domString += `<label class="custom-control-label" for="radio3 _${friend.id}">Maybe or unsure</label>`;
     domString += '</div>';
     domString += '</td>';
@@ -94,9 +94,9 @@ const getFriends = (uid) => {
     .then((friends) => {
       birfdayData.getbirfdayByUid(uid).then((bday) => {
         rsvpData.getRsvpsByBirthdayId(bday.id).then((rsvps) => {
-          console.error('rsvps', rsvps);
+          // console.error('rsvps', rsvps);
           const finalFriends = SMASH.friendRsvps(friends, rsvps);
-          console.error(finalFriends);
+          // console.error(finalFriends);
           showFriends(finalFriends);
         });
       });
